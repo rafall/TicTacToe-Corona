@@ -7,10 +7,6 @@
 local composer = require( "composer" )
 local scene = composer.newScene()
 
--- include Corona's "physics" library
-local physics = require "physics"
-physics.start(); physics.pause()
-
 --------------------------------------------
 
 -- forward declarations and other locals
@@ -31,6 +27,7 @@ function scene:create( event )
 	background.anchorY = 0
 	background:setFillColor( .5 )
 	
+<<<<<<< HEAD
 	-- adding vertical line
 	lineX = display.contentWidth/3
 	lineY = 0
@@ -50,6 +47,11 @@ function scene:create( event )
 	sceneGroup:insert( background )
 	
 	sceneGroup:insert( vLine1 )
+=======
+	-- define a shape that's slightly shorter than image bounds (set draw mode to "hybrid" or "debug" to see)
+	-- all display objects must be inserted into group
+	sceneGroup:insert( background )
+>>>>>>> FETCH_HEAD
 end
 
 
@@ -64,7 +66,6 @@ function scene:show( event )
 		-- 
 		-- INSERT code here to make the scene come alive
 		-- e.g. start timers, begin animation, play audio, etc.
-		physics.start()
 	end
 end
 
@@ -78,10 +79,8 @@ function scene:hide( event )
 		--
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
-		physics.stop()
-	elseif phase == "did" then
 		-- Called when the scene is now off screen
-	end	
+	end
 	
 end
 
@@ -93,10 +92,7 @@ function scene:destroy( event )
 	-- e.g. remove display objects, remove touch listeners, save state, etc.
 	local sceneGroup = self.view
 	
-	package.loaded[physics] = nil
-	physics = nil
 end
-
 ---------------------------------------------------------------------------------
 
 -- Listener setup
