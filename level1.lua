@@ -32,7 +32,7 @@ function scene:create( event )
 	background:setFillColor( .5 )
 	
 	-- make a crate (off-screen), position it, and rotate slightly
-	local crate = display.newImageRect( "crate.png", 90, 90 )
+	local crate = display.newImageRect( "res/img/crate.png", 90, 90 )
 	crate.x, crate.y = 160, -100
 	crate.rotation = 15
 	
@@ -40,7 +40,7 @@ function scene:create( event )
 	physics.addBody( crate, { density=1.0, friction=0.3, bounce=0.3 } )
 	
 	-- create a grass object and add physics (with custom shape)
-	local grass = display.newImageRect( "grass.png", screenW, 82 )
+	local grass = display.newImageRect( "res/img/grass.png", screenW, 82 )
 	grass.anchorX = 0
 	grass.anchorY = 1
 	grass.x, grass.y = 0, display.contentHeight
