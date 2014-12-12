@@ -31,28 +31,25 @@ function scene:create( event )
 	background.anchorY = 0
 	background:setFillColor( .5 )
 	
-	-- make a crate (off-screen), position it, and rotate slightly
-	local crate = display.newImageRect( "res/img/crate.png", 90, 90 )
-	crate.x, crate.y = 160, -100
-	crate.rotation = 15
-	
-	-- add physics to the crate
-	physics.addBody( crate, { density=1.0, friction=0.3, bounce=0.3 } )
-	
-	-- create a grass object and add physics (with custom shape)
-	local grass = display.newImageRect( "res/img/grass.png", screenW, 82 )
-	grass.anchorX = 0
-	grass.anchorY = 1
-	grass.x, grass.y = 0, display.contentHeight
-	
-	-- define a shape that's slightly shorter than image bounds (set draw mode to "hybrid" or "debug" to see)
-	local grassShape = { -halfW,-34, halfW,-34, halfW,34, -halfW,34 }
-	physics.addBody( grass, "static", { friction=0.3, shape=grassShape } )
-	
+	-- adding vertical line
+	lineX = display.contentWidth/3
+	lineY = 0
+	local vLine1 = display.newLine( lineX, lineY, lineX, lineY + display.contentHeight )
+	vLine1.strokeWidth = 15
+	local vLine1 = display.newLine( lineX*2,lineY, lineX*2, lineY + display.contentHeight )
+	vLine1.strokeWidth = 15
+	-- adding horizontal lines
+	lineX = 0
+	lineY = display.contentHeight/3
+	local vLine1 = display.newLine( lineX, lineY, lineX + display.contentWidth , lineY )
+	vLine1.strokeWidth = 15
+	local vLine1 = display.newLine( lineX,lineY*2, lineX + display.contentWidth, lineY*2 )
+	vLine1.strokeWidth = 15
+
 	-- all display objects must be inserted into group
 	sceneGroup:insert( background )
-	sceneGroup:insert( grass)
-	sceneGroup:insert( crate )
+	
+	sceneGroup:insert( vLine1 )
 end
 
 
