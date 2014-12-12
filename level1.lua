@@ -27,7 +27,6 @@ function scene:create( event )
 	background.anchorY = 0
 	background:setFillColor( .5 )
 	
-<<<<<<< HEAD
 	-- adding vertical line
 	lineX = display.contentWidth/3
 	lineY = 0
@@ -45,13 +44,8 @@ function scene:create( event )
 
 	-- all display objects must be inserted into group
 	sceneGroup:insert( background )
-	
 	sceneGroup:insert( vLine1 )
-=======
-	-- define a shape that's slightly shorter than image bounds (set draw mode to "hybrid" or "debug" to see)
-	-- all display objects must be inserted into group
-	sceneGroup:insert( background )
->>>>>>> FETCH_HEAD
+
 end
 
 
