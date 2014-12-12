@@ -47,8 +47,8 @@ function scene:create( event )
 	playBtn = widget.newButton{
 		label="Play Now",
 		labelColor = { default={255}, over={128} },
-		default="button.png",
-		over="button-over.png",
+		defaultFile="button.png",
+		overFile="button-over.png",
 		width=154, height=40,
 		onRelease = onPlayBtnRelease	-- event listener function
 	}
